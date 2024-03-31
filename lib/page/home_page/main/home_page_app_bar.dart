@@ -10,6 +10,6 @@ class HomePageAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppBar();
+    return AppBar(title: const Text("一覧データ取得"));
   }
 }
