@@ -14,6 +14,7 @@ class SelectionCompanyModel with _$SelectionCompanyModel {
     int? agentId,
     int? selectionStatusMasterId,
     int? selectionResultMasterId,
+    @Default(0) int orderNumber,
     DateTime? createdAt,
     DateTime? updatedAt
   }) = _SelectionCompanyModel;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:tanshoku_log/widgets/drop_down_status_list.dart';
-import '../../../feature/selection_compony/read_model/selection_company.dart';
+import '../../../feature/selection_compony/usecase/query/read_model/selection_company.dart';
 import 'card_url_area.dart';
 
 class SelectionListCard extends StatelessWidget {
@@ -49,9 +49,7 @@ class SelectionListCard extends StatelessWidget {
                 ),
               ],
             ),
-
             const Divider(),
-
             selectionCompany.url == null
                 ? Container()
                 : CardUrlArea(hpUrl: selectionCompany.url!)

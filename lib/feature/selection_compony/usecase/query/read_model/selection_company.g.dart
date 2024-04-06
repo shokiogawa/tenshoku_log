@@ -21,6 +21,7 @@ _$SelectionCompanyImpl _$$SelectionCompanyImplFromJson(
       selectionStatusName: json['selectionStatusName'] as String?,
       selectionResultMasterId: json['selectionResultMasterId'] as int?,
       selectionResultName: json['selectionResultName'] as String?,
+      orderNumber: json['orderNumber'] as int?,
       createdAt: json['createdAt'] == null
           ? null
           : DateTime.parse(json['createdAt'] as String),
@@ -42,6 +43,7 @@ Map<String, dynamic> _$$SelectionCompanyImplToJson(
       'selectionStatusName': instance.selectionStatusName,
       'selectionResultMasterId': instance.selectionResultMasterId,
       'selectionResultName': instance.selectionResultName,
+      'orderNumber': instance.orderNumber,
       'createdAt': instance.createdAt?.toIso8601String(),
       'updatedAt': instance.updatedAt?.toIso8601String(),
     };

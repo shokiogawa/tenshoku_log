@@ -30,6 +30,7 @@ mixin _$SelectionCompany {
   String? get selectionStatusName => throw _privateConstructorUsedError;
   int? get selectionResultMasterId => throw _privateConstructorUsedError;
   String? get selectionResultName => throw _privateConstructorUsedError;
+  int? get orderNumber => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
   DateTime? get updatedAt => throw _privateConstructorUsedError;
 
@@ -56,6 +57,7 @@ abstract class $SelectionCompanyCopyWith<$Res> {
       String? selectionStatusName,
       int? selectionResultMasterId,
       String? selectionResultName,
+      int? orderNumber,
       DateTime? createdAt,
       DateTime? updatedAt});
 }
@@ -83,6 +85,7 @@ class _$SelectionCompanyCopyWithImpl<$Res, $Val extends SelectionCompany>
     Object? selectionStatusName = freezed,
     Object? selectionResultMasterId = freezed,
     Object? selectionResultName = freezed,
+    Object? orderNumber = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
@@ -127,6 +130,10 @@ class _$SelectionCompanyCopyWithImpl<$Res, $Val extends SelectionCompany>
           ? _value.selectionResultName
           : selectionResultName // ignore: cast_nullable_to_non_nullable
               as String?,
+      orderNumber: freezed == orderNumber
+          ? _value.orderNumber
+          : orderNumber // ignore: cast_nullable_to_non_nullable
+              as int?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -158,6 +165,7 @@ abstract class _$$SelectionCompanyImplCopyWith<$Res>
       String? selectionStatusName,
       int? selectionResultMasterId,
       String? selectionResultName,
+      int? orderNumber,
       DateTime? createdAt,
       DateTime? updatedAt});
 }
@@ -183,6 +191,7 @@ class __$$SelectionCompanyImplCopyWithImpl<$Res>
     Object? selectionStatusName = freezed,
     Object? selectionResultMasterId = freezed,
     Object? selectionResultName = freezed,
+    Object? orderNumber = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
@@ -227,6 +236,10 @@ class __$$SelectionCompanyImplCopyWithImpl<$Res>
           ? _value.selectionResultName
           : selectionResultName // ignore: cast_nullable_to_non_nullable
               as String?,
+      orderNumber: freezed == orderNumber
+          ? _value.orderNumber
+          : orderNumber // ignore: cast_nullable_to_non_nullable
+              as int?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -253,6 +266,7 @@ class _$SelectionCompanyImpl implements _SelectionCompany {
       this.selectionStatusName,
       this.selectionResultMasterId,
       this.selectionResultName,
+      this.orderNumber,
       this.createdAt,
       this.updatedAt});
 
@@ -280,13 +294,15 @@ class _$SelectionCompanyImpl implements _SelectionCompany {
   @override
   final String? selectionResultName;
   @override
+  final int? orderNumber;
+  @override
   final DateTime? createdAt;
   @override
   final DateTime? updatedAt;
 
   @override
   String toString() {
-    return 'SelectionCompany(id: $id, name: $name, memo: $memo, url: $url, nextScheduledDate: $nextScheduledDate, agentId: $agentId, selectionStatusMasterId: $selectionStatusMasterId, selectionStatusName: $selectionStatusName, selectionResultMasterId: $selectionResultMasterId, selectionResultName: $selectionResultName, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'SelectionCompany(id: $id, name: $name, memo: $memo, url: $url, nextScheduledDate: $nextScheduledDate, agentId: $agentId, selectionStatusMasterId: $selectionStatusMasterId, selectionStatusName: $selectionStatusName, selectionResultMasterId: $selectionResultMasterId, selectionResultName: $selectionResultName, orderNumber: $orderNumber, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -311,6 +327,8 @@ class _$SelectionCompanyImpl implements _SelectionCompany {
                 other.selectionResultMasterId == selectionResultMasterId) &&
             (identical(other.selectionResultName, selectionResultName) ||
                 other.selectionResultName == selectionResultName) &&
+            (identical(other.orderNumber, orderNumber) ||
+                other.orderNumber == orderNumber) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
@@ -331,6 +349,7 @@ class _$SelectionCompanyImpl implements _SelectionCompany {
       selectionStatusName,
       selectionResultMasterId,
       selectionResultName,
+      orderNumber,
       createdAt,
       updatedAt);
 
@@ -361,6 +380,7 @@ abstract class _SelectionCompany implements SelectionCompany {
       final String? selectionStatusName,
       final int? selectionResultMasterId,
       final String? selectionResultName,
+      final int? orderNumber,
       final DateTime? createdAt,
       final DateTime? updatedAt}) = _$SelectionCompanyImpl;
 
@@ -387,6 +407,8 @@ abstract class _SelectionCompany implements SelectionCompany {
   int? get selectionResultMasterId;
   @override
   String? get selectionResultName;
+  @override
+  int? get orderNumber;
   @override
   DateTime? get createdAt;
   @override

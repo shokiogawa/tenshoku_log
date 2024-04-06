@@ -6,7 +6,7 @@ part of 'db_definition.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$futureDbHash() => r'be09d2ebccaebfa34419270f1e5e5d6110a4b50b';
+String _$futureDbHash() => r'd577ae3a8bdc5a9e0f81b9e5d4e6a7fbea33dfd4';
 
 /// See also [futureDb].
 @ProviderFor(futureDb)

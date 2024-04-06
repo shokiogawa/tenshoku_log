@@ -16,6 +16,7 @@ class SelectionCompany with _$SelectionCompany {
     String? selectionStatusName,
     int? selectionResultMasterId,
     String? selectionResultName,
+    int? orderNumber,
     DateTime? createdAt,
     DateTime? updatedAt
   }) = _SelectionCompany;

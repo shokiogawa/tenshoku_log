@@ -29,6 +29,7 @@ mixin _$SelectionCompanyModel {
   int? get agentId => throw _privateConstructorUsedError;
   int? get selectionStatusMasterId => throw _privateConstructorUsedError;
   int? get selectionResultMasterId => throw _privateConstructorUsedError;
+  int get orderNumber => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
   DateTime? get updatedAt => throw _privateConstructorUsedError;
 
@@ -53,6 +54,7 @@ abstract class $SelectionCompanyModelCopyWith<$Res> {
       int? agentId,
       int? selectionStatusMasterId,
       int? selectionResultMasterId,
+      int orderNumber,
       DateTime? createdAt,
       DateTime? updatedAt});
 }
@@ -79,6 +81,7 @@ class _$SelectionCompanyModelCopyWithImpl<$Res,
     Object? agentId = freezed,
     Object? selectionStatusMasterId = freezed,
     Object? selectionResultMasterId = freezed,
+    Object? orderNumber = null,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
@@ -115,6 +118,10 @@ class _$SelectionCompanyModelCopyWithImpl<$Res,
           ? _value.selectionResultMasterId
           : selectionResultMasterId // ignore: cast_nullable_to_non_nullable
               as int?,
+      orderNumber: null == orderNumber
+          ? _value.orderNumber
+          : orderNumber // ignore: cast_nullable_to_non_nullable
+              as int,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -145,6 +152,7 @@ abstract class _$$SelectionCompanyModelImplCopyWith<$Res>
       int? agentId,
       int? selectionStatusMasterId,
       int? selectionResultMasterId,
+      int orderNumber,
       DateTime? createdAt,
       DateTime? updatedAt});
 }
@@ -169,6 +177,7 @@ class __$$SelectionCompanyModelImplCopyWithImpl<$Res>
     Object? agentId = freezed,
     Object? selectionStatusMasterId = freezed,
     Object? selectionResultMasterId = freezed,
+    Object? orderNumber = null,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
@@ -205,6 +214,10 @@ class __$$SelectionCompanyModelImplCopyWithImpl<$Res>
           ? _value.selectionResultMasterId
           : selectionResultMasterId // ignore: cast_nullable_to_non_nullable
               as int?,
+      orderNumber: null == orderNumber
+          ? _value.orderNumber
+          : orderNumber // ignore: cast_nullable_to_non_nullable
+              as int,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -229,6 +242,7 @@ class _$SelectionCompanyModelImpl implements _SelectionCompanyModel {
       this.agentId,
       this.selectionStatusMasterId,
       this.selectionResultMasterId,
+      this.orderNumber = 0,
       this.createdAt,
       this.updatedAt});
 
@@ -252,13 +266,16 @@ class _$SelectionCompanyModelImpl implements _SelectionCompanyModel {
   @override
   final int? selectionResultMasterId;
   @override
+  @JsonKey()
+  final int orderNumber;
+  @override
   final DateTime? createdAt;
   @override
   final DateTime? updatedAt;
 
   @override
   String toString() {
-    return 'SelectionCompanyModel(id: $id, name: $name, memo: $memo, url: $url, nextScheduledDate: $nextScheduledDate, agentId: $agentId, selectionStatusMasterId: $selectionStatusMasterId, selectionResultMasterId: $selectionResultMasterId, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'SelectionCompanyModel(id: $id, name: $name, memo: $memo, url: $url, nextScheduledDate: $nextScheduledDate, agentId: $agentId, selectionStatusMasterId: $selectionStatusMasterId, selectionResultMasterId: $selectionResultMasterId, orderNumber: $orderNumber, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -279,6 +296,8 @@ class _$SelectionCompanyModelImpl implements _SelectionCompanyModel {
             (identical(
                     other.selectionResultMasterId, selectionResultMasterId) ||
                 other.selectionResultMasterId == selectionResultMasterId) &&
+            (identical(other.orderNumber, orderNumber) ||
+                other.orderNumber == orderNumber) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
@@ -297,6 +316,7 @@ class _$SelectionCompanyModelImpl implements _SelectionCompanyModel {
       agentId,
       selectionStatusMasterId,
       selectionResultMasterId,
+      orderNumber,
       createdAt,
       updatedAt);
 
@@ -325,6 +345,7 @@ abstract class _SelectionCompanyModel implements SelectionCompanyModel {
       final int? agentId,
       final int? selectionStatusMasterId,
       final int? selectionResultMasterId,
+      final int orderNumber,
       final DateTime? createdAt,
       final DateTime? updatedAt}) = _$SelectionCompanyModelImpl;
 
@@ -347,6 +368,8 @@ abstract class _SelectionCompanyModel implements SelectionCompanyModel {
   int? get selectionStatusMasterId;
   @override
   int? get selectionResultMasterId;
+  @override
+  int get orderNumber;
   @override
   DateTime? get createdAt;
   @override

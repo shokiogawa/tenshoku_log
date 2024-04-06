@@ -1,9 +1,8 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:tanshoku_log/db/model/selection_company_model/selection_company_model.dart';
-
 import '../../../db/db_definition.dart';
-import '../read_model/selection_company.dart';
+import '../usecase/query/read_model/selection_company.dart';
 part 'selection_company_repository.g.dart';
 
 @riverpod
@@ -26,7 +25,7 @@ class SelectionCompanyRepository {
         "ssm.name AS 'selectionStatusName' "
         "FROM selection_companies AS sc"
         " INNER JOIN selection_result_masters AS srm ON sc.selectionResultMasterId = srm.id "
-        " INNER JOIN selection_status_masters ssm ON sc.selectionStatusMasterId = ssm.id";
+        " INNER JOIN selection_status_masters ssm ON sc.selectionStatusMasterId = ssm.id ORDER BY sc.orderNumber asc";
 
     final result = await db.rawQuery(query);
     final resultList = result.map((e) => SelectionCompany.fromJson(e)).toList();

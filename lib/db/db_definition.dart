@@ -28,6 +28,7 @@ Future<Database> futureDb(FutureDbRef ref) async {
            agentId INTEGER,
            selectionStatusMasterId INTEGER NOT NULL,
            selectionResultMasterId INTEGER NOT NULL,
+           orderNumber INTEGER,
            createdAt TEXT NOT NULL,
            updatedAt TEXT NOT NULL,
            foreign key (agentId) references agents(id),

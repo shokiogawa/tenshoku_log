@@ -2,7 +2,7 @@ import 'package:html/parser.dart';
 import 'package:http/http.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../read_model/hp_info.dart';
+import '../usecase/query/read_model/hp_info.dart';
 
 part 'hp_meta_data_repository.g.dart';
 

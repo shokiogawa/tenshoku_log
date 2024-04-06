@@ -1,7 +1,7 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:tanshoku_log/feature/selection_compony/repository/hp_meta_data_repository.dart';
 
-import '../../../read_model/hp_info.dart';
+import '../read_model/hp_info.dart';
 
 part 'fetch_hp_meta_data_provider.g.dart';
 

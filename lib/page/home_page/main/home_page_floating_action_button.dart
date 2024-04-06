@@ -3,10 +3,10 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:tanshoku_log/db/model/selection_company_model/selection_company_model.dart';
 import 'package:tanshoku_log/feature/selection_compony/repository/selection_company_repository.dart';
+import 'package:tanshoku_log/feature/selection_compony/usecase/command/selection_company_command_provider.dart';
 import 'package:tanshoku_log/widgets/custom_button.dart';
 import 'package:tanshoku_log/widgets/custom_date_form.dart';
 import 'package:tanshoku_log/widgets/drop_down_status_list.dart';
-import '../../../feature/selection_compony/usecase/query/fetch_selection_company_list/fetch_selection_company_list_provider.dart';
 import '../../../widgets/custome_text_form.dart';
 
 class HomePageFloatingActionButton extends HookConsumerWidget {
@@ -31,6 +31,7 @@ class AddSelectionCompanyModal extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final asyncCommand = ref.watch(selectionCompanyCommandProvider);
     final companyNameController = useTextEditingController();
     final memoController = useTextEditingController();
     final urlController = useTextEditingController();
@@ -90,32 +91,42 @@ class AddSelectionCompanyModal extends HookConsumerWidget {
                   onSelected: (DateTime value) {
                     selectedDateTime = value;
                   }),
-
-
-
               const SizedBox(height: 50),
+
               // 追加する
-              CustomButton(
-                text: "追加する",
-                buttonColor: Theme.of(context).primaryColor,
-                onPressed: () async {
-                  final data = SelectionCompanyModel(
-                      name: companyNameController.text,
-                      memo: memoController.text,
-                      url: urlController.text,
-                      nextScheduledDate: selectedDateTime,
-                      selectionResultMasterId: 1,
-                      selectionStatusMasterId: statusValue,
-                      createdAt: DateTime.now(),
-                      updatedAt: DateTime.now());
-                  await ref
-                      .read(selectionCompanyRepositoryProvider)
-                      .add(data)
-                      .then((value) => print('成功したました。'));
-                  ref.invalidate(futureFetchSelectionCompanyListProvider);
-                  Navigator.of(context).pop();
-                },
-              )
+              Container(child: (() {
+                switch (asyncCommand) {
+                  // 正常処理
+                  case AsyncData(:final value):
+                    return CustomButton(
+                      text: "追加する",
+                      buttonColor: Theme.of(context).primaryColor,
+                      onPressed: () async {
+                        final data = SelectionCompanyModel(
+                            name: companyNameController.text,
+                            memo: memoController.text,
+                            url: urlController.text,
+                            nextScheduledDate: selectedDateTime,
+                            selectionResultMasterId: 1,
+                            selectionStatusMasterId: statusValue,
+                            createdAt: DateTime.now(),
+                            updatedAt: DateTime.now());
+                        //await ref.read(selection)
+                        await ref
+                            .read(selectionCompanyCommandProvider.notifier)
+                            .addSelectionCompany(data)
+                            .then((value) {
+                          Navigator.of(context).pop();
+                        }).catchError(() {
+                          // TODO: エラー時のメッセージ処理
+                        });
+                      },
+                    );
+                  // ローディング処理
+                  default:
+                    return const Center(child: CircularProgressIndicator());
+                }
+              })())
             ],
           ),
         ),
