@@ -31,7 +31,7 @@ class DropDownStatusList extends HookConsumerWidget {
               decoration: BoxDecoration(
                   color: Colors.white, borderRadius: BorderRadius.circular(10)),
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
+                padding: const EdgeInsets.only(left: 7),
                 child: DropdownButton(
                     underline: const SizedBox(),
                     icon: null,

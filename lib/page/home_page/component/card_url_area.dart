@@ -1,8 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:tanshoku_log/feature/selection_compony/usecase/query/fetch_hp_meta_data/fetch_hp_meta_data_provider.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../../../feature/selection_compony/usecase/fetch_hp_meta_data_provider.dart';
 
 class CardUrlArea extends HookConsumerWidget {
   const CardUrlArea({super.key, required this.hpUrl});
@@ -24,7 +25,7 @@ class CardUrlArea extends HookConsumerWidget {
           child: Row(
             children: [
               // 画像エリア
-              (value.imageUrl != null || value.imageUrl != "")
+              (value.imageUrl != null && value.imageUrl != "")
                   ? Expanded(
                       flex: 1,
                       child: Image(
@@ -53,7 +54,7 @@ class CardUrlArea extends HookConsumerWidget {
         return Center(child: Text('Error: $error'));
       // ローディング処理
       default:
-        return const Center(child: CircularProgressIndicator());
+        return const Center(child: Text("..."));
     }
   }
 }
